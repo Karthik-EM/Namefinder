@@ -1,3 +1,4 @@
+//my first project
 #include <stdio.h>
 #include <unistd.h>
 int main() {
@@ -8,7 +9,6 @@ int main() {
 	char newopt1[5], newopt2[5], newopt3[5], newopt4[5];
 	char word[4];
 	int opt1, opt2, opt3, opt4, i;
-
 	printf("haloo there! let me show you a magic\n");
 	printf("think of a four letter word\n");
 	printf("you can input which option by using the letters corresponding to the options (i.e., if it is option_A you can input 'a', caps should be off)\n\n");
