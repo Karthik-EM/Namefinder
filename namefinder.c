@@ -1,6 +1,6 @@
 //my first project
 #include <stdio.h>
-#include <unistd.h>
+#include <windows.h> 
 int main() {
 	char a[6] = {'a', 'b', 'c', 'd'}, b[6] = {'e', 'f', 'g', 'h'}, c[6] = {'i', 'j', 'k', 'l'},
 	            d[6] = {'m', 'n', 'o', 'p'}, e[6] = {'q', 'r', 's', 't'}, f[6] = {'u', 'v', 'w', 'x'},
@@ -8,10 +8,10 @@ int main() {
 	char option1, option2, option3, option4;
 	char newopt1[5], newopt2[5], newopt3[5], newopt4[5];
 	char word[4];
-	int opt1, opt2, opt3, opt4, i;
+	int opt1, opt2, opt3, opt4,i,k=0,w=0;
 	printf("haloo there! let me show you a magic\n");
 	printf("think of a four letter word\n");
-	printf("you can input which option by using the letters corresponding to the options (i.e., if it is option_A you can input 'a', caps should be off)\n\n");
+	printf("you can input which option by using the letters corresponding to the options (i.e., if it is option_A you can input 'a',Capslock should be off)\n\n");
 	printf("option_A(a,b,c,d)\n\noption_B(e,f,g,h)\n\noption_C(i,j,k,l)\n\noption_D(m,n,o,p)\n\noption_E(q,r,s,t)\n\noption_f(u,v,w,x)\n\noption_G(y,z)\n\n");
 	printf("in which option does the first letter of the word belong: ");
 	scanf(" %c", &option1);
@@ -185,7 +185,10 @@ int main() {
 	} else {
 		printf("wrong");
 	}
-
+    newopt1[4] = '\0'; 
+    newopt2[4] = '\0'; 
+    newopt3[4] = '\0'; 
+    newopt4[4] = '\0'; 
 	printf("\n");
 
 	// option printing
@@ -283,32 +286,73 @@ int main() {
 	} else {
 		printf("wrong input");
 	}
-	for(i=0; i<400; i++)
-	{
-		if(i<100)
-		{
-			printf("%c\n",word[0]);
-			usleep( 10000 );
-		}
-		else if(i<200)
-		{
-			printf("%c%c\n",word[0],word[1]);
-			usleep( 10000 );
-		}
-		else if(i<300)
-		{
-			printf("%c%c%c\n",word[0],word[1],word[2]);
-			usleep( 10000 );
-		}
-		else
-		{
-			printf("%c%c%c%c\n",word[0],word[1],word[2],word[3]);
-			usleep( 10000 );
-		}
-	}
-printf("The word you guessed is: %c%c%c%c\n", word[0], word[1], word[2], word[3]);
-printf("TADA");
+	printf("\n");
+printf("The word you guessed is:");
+//printing effect
+char alpha[26]={"abcdefghijklmnopqrstuvwxyz"};
+       while(1)
+       {
+            if(w==0)
+            {
+                if(word[0]==alpha[k])
+                {
+                    printf("%c",word[0]);
+                    k=0;
+                    w=1;
+                }
+                else{
+                printf("%c",alpha[k]);
+                k++;
+                printf("\b");  
+                Sleep(100);
+                }
+            }
+            if(w==1)
+            {
+                if(word[1]==alpha[k])
+                {
+                    printf("%c",word[1]);
+                    k=0;
+                    w=2;
+                }
+                else{
+                printf("%c",alpha[k]);
+                k++;
+                printf("\b");  
+                Sleep(100);
+                }
+            }
+            if(w==2)
+            {
+                if(word[2]==alpha[k])
+                {
+                    printf("%c",word[2]);
+                    k=0;
+                    w=3;
+                }
+                else{
+                printf("%c",alpha[k]);
+                k++;
+                printf("\b");  
+                Sleep(100);
+                }
+            }
+            if(w==3)
+            {
+                if(word[3]==alpha[k])
+                {
+                    printf("%c",word[3]);
+                    break;
+                }
+                else{
+                printf("%c",alpha[k]);
+                k++;
+                printf("\b");  
+                Sleep(100);
+                }
+            }
+       }
+printf("\nTADA");
 
 return 0;
 }
-
